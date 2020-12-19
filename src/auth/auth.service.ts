@@ -37,7 +37,6 @@ export class AuthService {
       throw new UnauthorizedException('Incorrect email-password combination!');
     }
 
-    delete user.password;
     return {
       token: sign({ ...user }, process.env.JWT_SECRET, { expiresIn: '1h' }),
     };
