@@ -1,6 +1,5 @@
 import {
   ForbiddenException,
-  HttpStatus,
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
@@ -28,11 +27,7 @@ export class AuthService {
     user.password = await hash(password, 10);
     await this.userRepository.save(user);
 
-    return {
-      statusCode: HttpStatus.CREATED,
-      message: 'User created successfully!',
-      email,
-    };
+    return { email };
   }
 
   public async authOrFail(email: string, password: string) {
@@ -44,8 +39,6 @@ export class AuthService {
 
     delete user.password;
     return {
-      statusCode: HttpStatus.OK,
-      message: 'Authenticated!',
       token: sign({ ...user }, process.env.JWT_SECRET, { expiresIn: '1h' }),
     };
   }
