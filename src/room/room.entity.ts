@@ -5,8 +5,8 @@ export class Room {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('int')
-  roomNo: number;
+  @Column('varchar', { unique: true })
+  number: string;
 
   @Column('varchar')
   type: string;
@@ -17,6 +17,6 @@ export class Room {
   @Column('int')
   maxPersons: number;
 
-  @Column('boolean')
+  @Column('boolean', { default: false })
   isLocked: boolean;
 }
