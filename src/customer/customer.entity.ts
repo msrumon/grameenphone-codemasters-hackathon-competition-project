@@ -1,4 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Customer {
@@ -11,12 +16,12 @@ export class Customer {
   @Column('varchar')
   lastName: string;
 
-  @Column('varchar')
+  @Column('varchar', { unique: true })
   email: string;
 
-  @Column('varchar')
+  @Column('varchar', { unique: true })
   phone: string;
 
-  @Column('datetime')
+  @CreateDateColumn()
   registeredAt: Date;
 }
