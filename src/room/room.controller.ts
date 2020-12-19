@@ -28,7 +28,7 @@ export class RoomController {
     return {
       statusCode: HttpStatus.CREATED,
       message: 'Room created successfully!',
-      ...(await this.roomService.store(roomDto)),
+      ...(await this.roomService.create(roomDto)),
     };
   }
 }

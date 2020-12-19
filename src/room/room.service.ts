@@ -24,7 +24,7 @@ export class RoomService {
     return rooms;
   }
 
-  public async store(roomDto: RoomDto) {
+  public async create(roomDto: RoomDto) {
     const ex = await this.roomRepository.findOne({
       where: { number: roomDto.number },
     });

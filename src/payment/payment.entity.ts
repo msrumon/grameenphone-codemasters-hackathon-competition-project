@@ -1,5 +1,6 @@
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinTable,
   OneToOne,
@@ -19,6 +20,6 @@ export class Payment {
   @Column('decimal')
   amount: number;
 
-  @Column('datetime')
+  @CreateDateColumn()
   paidAt: Date;
 }

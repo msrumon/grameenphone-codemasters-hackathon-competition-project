@@ -17,6 +17,9 @@ export class Room {
   @Column('int')
   maxPersons: number;
 
+  @Column('int', { default: 0 })
+  occupiedPersons: number;
+
   @Column('boolean', { default: false })
   isLocked: boolean;
 }

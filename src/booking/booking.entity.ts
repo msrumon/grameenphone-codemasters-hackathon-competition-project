@@ -1,5 +1,6 @@
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinColumn,
   ManyToOne,
@@ -7,7 +8,9 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Customer } from '../customer/customer.entity';
+import { Payment } from '../payment/payment.entity';
 import { Room } from '../room/room.entity';
+import { BookingType } from './booking.type';
 
 @Entity()
 export class Booking {
@@ -22,12 +25,18 @@ export class Booking {
   @JoinColumn()
   room: Room;
 
-  @Column('datetime')
-  arrivedAt: Date;
+  @Column('varchar')
+  type: BookingType;
 
   @Column('datetime')
-  checkedInAt: Date;
+  arriveAt: Date;
 
   @Column('datetime')
+  checkoutAt: Date;
+
+  @OneToOne(() => Payment)
+  payment: Payment;
+
+  @CreateDateColumn()
   bookedAt: Date;
 }
