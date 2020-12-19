@@ -5,9 +5,9 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Booking } from './booking.entity';
+import { Booking } from '../booking/booking.entity';
 
-@Entity({ name: 'payments' })
+@Entity()
 export class Payment {
   @PrimaryGeneratedColumn()
   id: number;

@@ -6,10 +6,10 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Customer } from './customer.entity';
-import { Room } from './room.entity';
+import { Customer } from '../customer/customer.entity';
+import { Room } from '../room/room.entity';
 
-@Entity({ name: 'bookings' })
+@Entity()
 export class Booking {
   @PrimaryGeneratedColumn()
   id: number;

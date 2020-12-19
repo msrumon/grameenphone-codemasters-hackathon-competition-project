@@ -1,8 +1,15 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AuthModule } from './auth/auth.module';
+import { RoomController } from './room/room.controller';
+import { RoomService } from './room/room.service';
+import { CustomerController } from './customer/customer.controller';
+import { CustomerService } from './customer/customer.service';
+import { BookingController } from './booking/booking.controller';
+import { BookingService } from './booking/booking.service';
+import { PaymentController } from './payment/payment.controller';
+import { PaymentService } from './payment/payment.service';
 
 @Module({
   imports: [
@@ -16,10 +23,15 @@ import { AppService } from './app.service';
       database: process.env.DB_NAME,
       entities: ['dist/**/*.entity{.js,.ts}'],
       retryAttempts: 3,
-      retryDelay: 4444,
     }),
+    AuthModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [
+    RoomController,
+    CustomerController,
+    BookingController,
+    PaymentController,
+  ],
+  providers: [RoomService, CustomerService, BookingService, PaymentService],
 })
 export class AppModule {}
