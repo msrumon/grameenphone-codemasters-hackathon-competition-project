@@ -28,3 +28,8 @@ Doc is available at `/doc` route.
 ## Q/A
 
 Have any questions? Please open issue.
+
+## Info for GP
+
+**Name:** Mahmud Sazzad
+**Email:** admin@msrumon.com
