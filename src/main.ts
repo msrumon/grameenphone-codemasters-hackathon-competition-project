@@ -17,6 +17,7 @@ async function bootstrap() {
   docOptions.setTitle('Hotel Management');
   docOptions.setDescription('ReST API for managing hotels.');
   docOptions.setVersion('1.0.0');
+  docOptions.addBearerAuth();
 
   const doc = SwaggerModule.createDocument(app, docOptions.build());
   SwaggerModule.setup('doc', app, doc);
